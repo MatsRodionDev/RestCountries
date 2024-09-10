@@ -13,7 +13,7 @@ searchInput.addEventListener('input', async () => {
         const countries = await response.json();
                 displayCountries(countries);
     } catch (error) {
-        countriesDiv.innerHTML = '<p>Ошибка получения данных.</p>';
+        countriesDiv.innerHTML = '<p>Error retrieving data.</p>';
     }
 });
 
@@ -24,10 +24,10 @@ function displayCountries(countries) {
         countryCard.className = 'country-card';
         countryCard.innerHTML = `
             <h3>${country.name.common}</h3>
-            <img src="${country.flags.svg}" alt="Флаг ${country.name.common}" />
-            <p>Столица: ${country.capital ? country.capital[0] : 'Нет данных'}</p>
-            <p>Население: ${country.population.toLocaleString()}</p>
-            <p>Регион: ${country.region}</p>
+            <img src="${country.flags.svg}" alt="Flag ${country.name.common}" />
+            <p>Capital: ${country.capital ? country.capital[0] : 'No data'}</p>
+            <p>Population: ${country.population.toLocaleString()}</p>
+            <p>Region: ${country.region}</p>
         `;
         countriesDiv.appendChild(countryCard);
     });
