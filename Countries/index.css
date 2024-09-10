@@ -1,22 +1,22 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-h1{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center; 
     min-height: 100vh;
-    width: 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    /* padding: 20px; */
+}
+
+.search{
+    text-align: center;
+}
+
+button{
+    width: 36px;
+    height: 36px;
+    border: none;
+    background-color: white;
 }
 
 input {
@@ -27,35 +27,31 @@ input {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
 #countries {
     display: flex;
-    flex-direction: column;
-    align-items: center; 
+    flex-wrap: wrap; 
     width: 100%;
-    flex-grow: 1;
+    flex-grow: 1; 
 }
-
 .country-card {
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin: 10px 0;
+    margin: 10px;
     padding: 10px;
-    width: 35%; 
+    flex: 0 1 30%;
+
+    
     transition: transform 0.3s;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center; 
+    text-align: center;
 }
-
 .country-card img {
-    max-width: 150px; 
-    height: auto; 
+    width: 100px;
+    height: auto;
 }
-
 .country-card:hover {
     transform: scale(1.05);
 }
-
 footer {
     background: #333;
     color: white;

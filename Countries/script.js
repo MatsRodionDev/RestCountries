@@ -1,19 +1,40 @@
 const searchInput = document.getElementById('search');
 const countriesDiv = document.getElementById('countries');
+const button = document.getElementById('button');
 
-searchInput.addEventListener('input', async () => {
-    const query = searchInput.value;
-    if (query.length < 2) {
-        countriesDiv.innerHTML = ''; 
-        return;
-    }
-
+button.addEventListener('click', () => {
+    console.log('dndn')
+    countriesDiv.innerHTML = '';
+    searchInput.value = '';
+})
+document.addEventListener('DOMContentLoaded', async () => {
+   
     try {
-        const response = await fetch(`https://restcountries.com/v3.1/name/${query}`);
+        const response = await fetch(`https://restcountries.com/v3.1/all`);
+        
         const countries = await response.json();
-                displayCountries(countries);
+        console.log(countries.log)
+        displayCountries(countries);
     } catch (error) {
         countriesDiv.innerHTML = '<p>Error retrieving data.</p>';
+    }
+});
+
+searchInput.addEventListener('keydown', async (event) => {
+    if (event.key === 'Enter') {
+        const query = searchInput.value;
+        if (query.length < 2) {
+            countriesDiv.innerHTML = ''; // Очистить результат, если меньше 2 символов
+            return;
+        }
+
+        try {
+            const response = await fetch(`https://restcountries.com/v3.1/name/${query}`);
+            const countries = await response.json();
+            displayCountries(countries);
+        } catch (error) {
+            countriesDiv.innerHTML = '<p>Ошибка получения данных.</p>';
+        }
     }
 });
 
